@@ -2,22 +2,32 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
 import ContentContainer from './src/components/ContentContainer';
+import Dashboard from './src/components/Dashboard';
 import Header from './src/components/Header';
 // import Login from './src/components/Login';
 import NavBar from './src/components/NavBar';
+import StartScreen from './src/components/StartScreen';
 
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+
+  setTimeout(() => setIsLoading(false), 3000);
 
   return (
-    <View style={styles.container}>
+      <View style={styles.container}>
       <StatusBar style="auto" />
-      {isLoggedIn ? <Header /> : null}
-      <ContentContainer>
-      </ContentContainer>
-      { isLoggedIn ? <NavBar /> : null }
-    </View>
-  );
+      { isLoading
+        ? <StartScreen />
+        : <View>
+            <Header />
+            <ContentContainer>
+              <Dashboard />
+            </ContentContainer>
+            <NavBar />
+          </View>
+      }
+      </View>
+      );
 }
 
 const styles = StyleSheet.create({
