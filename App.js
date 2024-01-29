@@ -1,11 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useState } from 'react';
-import ContentContainer from './src/components/ContentContainer';
-import Dashboard from './src/components/Dashboard';
+import { NavigationContainer } from '@react-navigation/native';
 import Header from './src/components/Header';
-// import Login from './src/components/Login';
-import NavBar from './src/components/NavBar';
+import Tabs from './src/components/Tabs';
 import StartScreen from './src/components/StartScreen';
 
 export default function App() {
@@ -18,12 +16,11 @@ export default function App() {
       <StatusBar style="auto" />
       { isLoading
         ? <StartScreen />
-        : <View>
+        : <View style={styles.container}>
             <Header />
-            <ContentContainer>
-              <Dashboard />
-            </ContentContainer>
-            <NavBar />
+            <NavigationContainer>
+              <Tabs />
+            </NavigationContainer>
           </View>
       }
       </View>
@@ -33,10 +30,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#4B2142',
-    color: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#282828',
   },
 });
 
@@ -46,7 +40,7 @@ Color schemes
 #74226C
 #816
 #816E94
-#8CC7A1
+#8CC7A1 -> #59C9A5
 
 #2A1F2D
 #3B2C35

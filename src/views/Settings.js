@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function NavBar() {
+export default function Settings() {
     return (
-        <View style={styles.footer}>
-            <Text>NavBar</Text>
+        <View style={styles.settings}>
+            <Text>Settings</Text>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    footer: {
+    settings: {
         alignItems: 'center',
         justifyContent: 'flex-end',
         backgroundColor: '#816',
